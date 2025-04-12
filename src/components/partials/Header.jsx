@@ -3,13 +3,12 @@
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import { AiOutlineAlignCenter } from "react-icons/ai";
-import { FaRegUserCircle, FaRegUser } from "react-icons/fa";
+import {  FaRegUser } from "react-icons/fa";
 import { FaUserSecret } from "react-icons/fa6";
 import { MdOutlineTask } from "react-icons/md";
 import { GoTasklist } from "react-icons/go";
-
+import Cookies from "js-cookie";
 import Sidebar from "@/components/partials/sidebar/Sidebar";
-import ThemeSwitcher from "../ThemeSwitcher";
 import Avatar from "../ui/Avatar";
 import { FaUserCircle } from "react-icons/fa";
 import { BiTask } from "react-icons/bi";
@@ -20,18 +19,13 @@ const Header = ({ isSidebarOpen, onSidebarToggle }) => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const router = useRouter();
 
-  const getMe = useMeStore((state) => state.getMe);
-  const name = useMeStore((state) => state.name);
-
-  useEffect(() => {
-    getMe();
-  }, [getMe]);
-
+const{getMe , name}= useMeStore();
   const toggleDropdown = () => {
     setDropdownOpen(!isDropdownOpen);
   };
 
   const navigateToLogin = () => {
+    Cookies.remove("token");
     router.push("/");
   };
 
@@ -41,6 +35,13 @@ const Header = ({ isSidebarOpen, onSidebarToggle }) => {
       onSidebarToggle(false);
     }
   };
+
+
+  useEffect(() => {
+    if (!name) {
+      getMe();
+    }
+  }, []);
 
   return (
     <header className="sticky top-0 z-50 px-4 py-4 bg-white  ">
@@ -58,9 +59,6 @@ const Header = ({ isSidebarOpen, onSidebarToggle }) => {
         </div>
 
         <nav className="hidden sm:flex items-center space-x-4 text-sm sm:text-base lg:text-lg ">
-          {/* <div>
-            <ThemeSwitcher />
-          </div> */}
           <div className="border-l border-gray-600 h-6"></div>
 
           <div className="flex space-x-2">
@@ -114,10 +112,9 @@ const Header = ({ isSidebarOpen, onSidebarToggle }) => {
             onClick={() => handleSidebarItemClick("/dashboard/managae-task")}
           />
           <SubMenu
-          label="Visits"
-          icon={GoTasklist}
-          onClick={()=>handleSidebarItemClick("/dashboard/manage-visit")}
-
+            label="Visits"
+            icon={GoTasklist}
+            onClick={() => handleSidebarItemClick("/dashboard/manage-visit")}
           />
         </NavMenu>
       </Sidebar>

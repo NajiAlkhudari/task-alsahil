@@ -13,7 +13,7 @@ import {
 } from "@/utils/ToastNotifications";
 import React, { useEffect, useState } from "react";
 
-const page = () => {
+const Page = () => {
   const [activeModal, setActiveModal] = useState(null); // "add", "update", "delete"
   const [taskIdToDelete, setTaskIdToDelete] = useState(null);
   const [taskDataToUpdate, setTaskDataToUpdate] = useState(null);
@@ -22,7 +22,7 @@ const page = () => {
 
   useEffect(() => {
     getTasks();
-  }, [getTasks]);
+  }, []);
 
   const closeModal = () => {
     setActiveModal(null);
@@ -169,4 +169,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

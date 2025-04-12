@@ -10,9 +10,7 @@ import {
 import { useStore } from "@/store/userStore";
 import Card from "@/components/ui/Card";
 import Loading from "./loading";
-// import AddUserModal from "@/components/user/AddUserModal";
-// import DeleteUserModal from "@/components/user/DeleteUserModal";
-// import UpdateUserModal from "@/components/user/UpdateUserModal";
+
 const AddUserModal = React.lazy(() => import("@/components/user/AddUserModal"));
 const UpdateUserModal = React.lazy(() => import("@/components/user/UpdateUserModal"));
 const DeleteUserModal = React.lazy(() => import("@/components/user/DeleteUserModal"));
@@ -35,7 +33,7 @@ const Page = () => {
 
   useEffect(() => {
     getUser();
-  }, [getUser]);
+  }, []);
 
   const closeModal = () => {
     setActiveModal(null);

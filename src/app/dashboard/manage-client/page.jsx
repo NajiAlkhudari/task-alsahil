@@ -13,12 +13,14 @@ import {
   ToastContainer,
 } from "@/utils/ToastNotifications";
 import React, { useEffect, useState } from "react";
+import Loading from "./loading";
 
-const page = () => {
+const Page = () => {
   const [activeModal, setActiveModal] = useState(null); // "add", "update", "delete"
   const [clientIdToDelete, setClientIdToDelete] = useState(null);
   const [clientDataToUpdate, setClientDataToUpdate] = useState(null);
   const [clientIdToUpdate, setClientIdToUpdate] = useState(null);
+
   const {
     clients,
     loading,
@@ -32,11 +34,12 @@ const page = () => {
 
   useEffect(() => {
     getClients();
-  }, [getClients]);
+  }, []);
 
   const closeModal = () => {
     setActiveModal(null);
   };
+
 
   useEffect(() => {
     if (!activeModal) {
@@ -112,6 +115,8 @@ const page = () => {
     }
   };
 
+if(loading) return <Loading />
+
   const columns = [
     { header: "ID", key: "id" },
     { header: "Name", key: "name" },
@@ -173,4 +178,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

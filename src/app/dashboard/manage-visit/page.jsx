@@ -4,12 +4,12 @@ import Table from '@/components/ui/Table';
 import { useVisit } from '@/store/visitStore';
 import React, { useEffect } from 'react'
 
-const page = () => {
+const Page = () => {
   const {error , loading , visits , getVisits }= useVisit();
 
   useEffect(()=>{
     getVisits();
-  },[getVisits])
+  },[])
 
 
   const columns = [
@@ -36,4 +36,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page
