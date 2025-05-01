@@ -115,10 +115,10 @@ const Page = () => {
 
   const columns = [
     { header: "ID", key: "id" },
-    { header: "Name", key: "name" },
-    { header: "Email", key: "email" },
-    { header: "Role", key: "role" },
-    { header: "Action", key: "action" },
+    { header: "الاسم", key: "name" },
+    { header: "اسم المستخدم", key: "userName" },
+    { header: "الدور", key: "role" },
+    { header: "الاجراء", key: "action" },
   ];
 
   return (
@@ -126,12 +126,12 @@ const Page = () => {
       <Card>
         <div className="p-6">
           <div className="flex flex-row justify-between">
-            <h1 className="text-2xl font-bold mb-4">Users Table</h1>
+            <h1 className="text-2xl font-bold mb-4">جدول الموظفين</h1>
             <button
               className="mb-4 inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-gold text-base font-medium text-white hover:bg-gray-950 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm"
               onClick={() => setActiveModal("add")}
             >
-              Add User
+              موظف جديد
             </button>
           </div>
           <Table

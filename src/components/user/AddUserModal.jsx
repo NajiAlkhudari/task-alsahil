@@ -12,7 +12,7 @@ const AddUserModal = ({ isOpen, onClose , onSubmitUser }) => {
 
     const userData = {
       name: values.name,
-      email: values.email,
+      userName: values.userName,
       password: values.password,
       role: roleSum, 
     };
@@ -26,7 +26,7 @@ const AddUserModal = ({ isOpen, onClose , onSubmitUser }) => {
       <Formik
         initialValues={{
           name: "",
-          email: "",
+          userName: "",
           password: "",
           role: [],
         }}
@@ -50,13 +50,13 @@ const AddUserModal = ({ isOpen, onClose , onSubmitUser }) => {
 
               <div className="flex flex-col gap-1">
                 <div className="md:flex items-center gap-1">
-                  <label className="min-w-[100px] text-sm font-medium">Email</label>
+                  <label className="min-w-[100px] text-sm font-medium">userName</label>
                   <div className="flex-grow">
-                    <Field name="email" type="email" component={TextInputForm} placeholder="example@gmail.com" />
+                    <Field name="userName" type="userName" component={TextInputForm} placeholder="example@10" />
                   </div>
                 </div>
-                {touched.email && errors.email && (
-                  <div className="text-red-600 text-sm pl-[110px]">{errors.email}</div>
+                {touched.userName && errors.userName && (
+                  <div className="text-red-600 text-sm pl-[110px]">{errors.userName}</div>
                 )}
               </div>
 

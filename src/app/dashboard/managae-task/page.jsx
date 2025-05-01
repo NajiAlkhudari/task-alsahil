@@ -107,11 +107,10 @@ const Page = () => {
   };
 
   const columns = [
-    { header: "ID", key: "id" },
-    { header: "TaskName", key: "taskName" },
-    { header: "Description", key: "description" },
-    { header: "Notes", key: "notes" },
-    { header: "Action", key: "action" },
+    { header: "اسم المهمة", key: "taskName" },
+    { header: "الوصف", key: "description" },
+    { header: "ملاحظات", key: "notes" },
+    { header: "الاجراء", key: "action" },
   ];
 
   return (
@@ -119,12 +118,12 @@ const Page = () => {
       <Card>
         <div className="p-6">
           <div className="flex flex-row justify-between">
-            <h1 className="text-2xl font-bold mb-4">Tasks Table</h1>
+            <h1 className="text-2xl font-bold mb-4">جدول المهام</h1>
             <button
               className="mb-4 inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-gold text-base font-medium text-white hover:bg-gray-950 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm"
               onClick={() => setActiveModal("add")}
             >
-              Add Task
+              مهمة جديدة
             </button>
           </div>
         </div>

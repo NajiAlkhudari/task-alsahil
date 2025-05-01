@@ -32,25 +32,25 @@ const LoginForm = () => {
   return (
     <>
       <Formik
-        initialValues={{ email: "", password: "" }}
+        initialValues={{ userName: "", password: "" }}
         validationSchema={loginSchema}
-        onSubmit={({ email, password }) => {
-          login(email, password);
+        onSubmit={({ userName, password }) => {
+          login(userName, password);
         }}
       >
         {({ isSubmitting }) => (
           <Form className="space-y-6">
             <div>
-              <label className="text-sm text-black">Email</label>
+              <label className="text-sm text-black">UserName</label>
               <Field
                 type="text"
-                name="email"
-                placeholder="email"
+                name="userName"
+                placeholder="userName"
                 className="input"
                 component={TextInput}
               />
               <ErrorMessage
-                name="email"
+                name="userName"
                 component="div"
                 className="text-red-500 text-xs"
               />

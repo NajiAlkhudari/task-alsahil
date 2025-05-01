@@ -13,12 +13,12 @@ const Page = () => {
 
 
   const columns = [
-    { header: "ID", key: "id" },
-    { header: "User", key: "userId" },
-    { header: "Client", key: "clientId" },
-    { header: "Date", key: "completionDate" },
+    { header: "الموظف", key: "userName" },
+    { header: "العميل", key: "clientName" },
+    { header: "التاريخ", key: "completionDate" },
+
     {
-      header: "Tasks",
+      header: "المهام",
       key: "visitTasks",
       format: (row) =>
         row.visitTasks.map((task, i) => (
@@ -27,7 +27,9 @@ const Page = () => {
           </div>
         )),
     },
-    { header: "Action", key: "action" },
+    { header: "ملاحظات", key: "notes" },
+
+    { header: "الاجراء", key: "action" },
   ];
   return (
    <Card>

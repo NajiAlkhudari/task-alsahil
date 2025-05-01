@@ -2,31 +2,29 @@ import { create } from "zustand";
 import axios from "axios";
 import Cookies from "js-cookie";
 
-
-
-export const useVisit = create((set) => ({
+export const useReport = create((set) => ({
   loading: false,
   error: null,
-  visits: [],
+  userVisits: [],
 
-  getVisits: async () => {
+  getReport: async () => {
     set({ loading: true, error: null });
-  const token = Cookies.get('token');
+    const token = Cookies.get("token");
     if (!token) {
-      set({ error: 'Token not found', loading: false });
+      set({ error: "Token not found", loading: false });
       return;
     }
     try {
       const response = await axios.get(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/Visit`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/Report/clientvisits`,
         {
           headers: {
-            'Content-Type': 'application/json',
             Authorization: `Bearer ${token}`,
           },
         }
       );
-      set({ loading: false, visits: response.data?.data || [] });
+      set({ loading: false, userVisits: response.data?.data || [] });
+
     } catch (error) {
       set({ error: error.message });
     }

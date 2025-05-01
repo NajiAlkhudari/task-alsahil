@@ -55,7 +55,7 @@ const{getMe , name}= useMeStore();
 
         <div className="flex space-x-14 left-1/2 transform -translate-x-1/2 text-3xl font-bold text-sky-900">
           <BiTask />
-          Dashboard
+          لوحة التحكم
         </div>
 
         <nav className="hidden sm:flex items-center space-x-4 text-sm sm:text-base lg:text-lg ">
@@ -94,28 +94,33 @@ const{getMe , name}= useMeStore();
 
       <Sidebar isOpen={isSidebarOpen} onClose={() => onSidebarToggle(false)}>
         <p className="text-center p-4 text-2xl font-bold text-gold">Task Log</p>
-        <NavMenu title="Menu">
+        <NavMenu title="القائمة">
           <SubMenu
-            label="Users"
+            label="الموظفين"
             icon={FaRegUser}
             onClick={() => handleSidebarItemClick("/dashboard/manage-user")}
           />
 
           <SubMenu
-            label="Clients"
+            label="العملاء"
             icon={FaUserSecret}
             onClick={() => handleSidebarItemClick("/dashboard/manage-client")}
           />
           <SubMenu
-            label="Tasks"
+            label="المهام"
             icon={MdOutlineTask}
             onClick={() => handleSidebarItemClick("/dashboard/managae-task")}
           />
           <SubMenu
-            label="Visits"
+            label="الزيارات"
             icon={GoTasklist}
             onClick={() => handleSidebarItemClick("/dashboard/manage-visit")}
           />
+               {/* <SubMenu
+            label="التقارير"
+            icon={GoTasklist}
+            onClick={() => handleSidebarItemClick("/dashboard/report-visit")}
+          /> */}
         </NavMenu>
       </Sidebar>
     </header>

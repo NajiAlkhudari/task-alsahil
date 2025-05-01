@@ -14,12 +14,12 @@ export const useAuthStore = create (
     error: null,
     success: false,
 
-    login : async (email , password)=>{
+    login : async (userName , password)=>{
       set({ loading: true, error: null, success: false });
       try{
         const response = await axios.post(
           `${process.env.NEXT_PUBLIC_API_URL}/api/Auth/login`,
-          {email,password}
+          {userName,password}
         );
         const data = response?.data;
         if (!data || !data.token) {
