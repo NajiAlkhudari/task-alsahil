@@ -116,11 +116,7 @@ const{getMe , name}= useMeStore();
             icon={GoTasklist}
             onClick={() => handleSidebarItemClick("/dashboard/manage-visit")}
           />
-               {/* <SubMenu
-            label="التقارير"
-            icon={GoTasklist}
-            onClick={() => handleSidebarItemClick("/dashboard/report-visit")}
-          /> */}
+  
         </NavMenu>
       </Sidebar>
     </header>
