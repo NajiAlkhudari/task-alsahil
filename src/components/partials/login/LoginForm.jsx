@@ -18,7 +18,6 @@ const LoginForm = () => {
   const loading = useAuthStore((state) => state.loading);
   const error = useAuthStore((state) => state.error);
   const success = useAuthStore((state) => state.success);
-
   useEffect(() => {
     if (success) {
       router.push("/dashboard");

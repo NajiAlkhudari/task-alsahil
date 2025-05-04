@@ -13,6 +13,7 @@ export const useAuthStore = create (
     loading: false,
     error: null,
     success: false,
+    
 
     login : async (userName , password)=>{
       set({ loading: true, error: null, success: false });
@@ -26,6 +27,9 @@ export const useAuthStore = create (
           throw new Error('Invalid response from server');
         }     
              const { token, role } = data;
+             if (role !== 3) {
+              throw new Error("غير مصرح لك بالدخولً.");
+            }
              Cookies.set('token', token);
              set({ token, role, success: true, loading: false });
       }
