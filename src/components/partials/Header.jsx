@@ -11,7 +11,6 @@ import Cookies from "js-cookie";
 import Sidebar from "@/components/partials/sidebar/Sidebar";
 import Avatar from "../ui/Avatar";
 import { FaUserCircle } from "react-icons/fa";
-import { BiTask } from "react-icons/bi";
 import { useMeStore } from "@/store/meStore";
 import NavMenu from "./sidebar/NavMenu";
 import SubMenu from "./sidebar/Submenu";
@@ -54,7 +53,6 @@ const{getMe , name}= useMeStore();
         </button>
 
         <div className="flex space-x-14 left-1/2 transform -translate-x-1/2 text-3xl font-bold text-sky-900">
-          <BiTask />
           لوحة التحكم
         </div>
 

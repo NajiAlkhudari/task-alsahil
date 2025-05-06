@@ -24,11 +24,15 @@ const page = () => {
     totalPage,
     pageSize,
     totalCount,
+    amountReceived ,
+
   } = useVisit(); 
 
   const [localPageSize, setLocalPageSize] = useState(pageSize);
   const [searchName, setSearchName] = useState("");
   const [columnFilters, setColumnFilters] = useState([]);
+  const [firstDate, setFirstDate] = useState("");
+  const [lastDate, setLastDate] = useState("");
 
   const handleSearchChange = (e) => {
     const value = e.target.value;
@@ -39,9 +43,8 @@ const page = () => {
     if (searchName.trim() === "") {
       await getVisits(1, localPageSize);
     } else {
-      await getVisits(1, localPageSize, searchName);
+      await getVisits(1, localPageSize, searchName  );
     }
-    setSearchName(searchName);
   };
 
   const handleKeyDown = (e) => {
@@ -51,9 +54,16 @@ const page = () => {
   };
 
   useEffect(() => {
-    getVisits(1, localPageSize);
-  }, [localPageSize]);
+    getVisits(1, localPageSize, searchName, firstDate, lastDate);
+  }, [localPageSize, firstDate, lastDate]);
+  
+  const handleFirstDateChange = (event) => {
+    setFirstDate(event.target.value);
+  };
 
+  const handleLastDateChange = (event) => {
+    setLastDate(event.target.value);
+  };
   const columnHelper = createColumnHelper();
 
   const columns = [
@@ -95,7 +105,7 @@ const page = () => {
     }),
     columnHelper.accessor("notes", { header: "ملاحظات" ,      enableColumnFilter: false,
     }),
-  ];
+];
 
   const table = useReactTable({
     data: visits,
@@ -128,8 +138,33 @@ const page = () => {
     <>
       <Card>
         <div className="p-6 flex flex-row place-items-center justify-between">
-          <h1 className="text-3xl font-bold mb-4">جدول الزيارات</h1>
-          <div className="relative w-full sm:w-52 lg:w-64">
+         
+
+        <div className="flex flex-row-reverse ">
+      <label>الى: </label>
+        <input
+          type="date"
+          id="lastdate"
+          value={lastDate}
+          onChange={handleLastDateChange}
+          className="border-b  border-sky-900"
+        />
+      </div>
+          <div className="flex flex-row-reverse ">
+        <label>من: </label>
+        <input
+          type="date"
+          id="firstdate"
+          value={firstDate}
+          onChange={handleFirstDateChange}
+          className="border-b  border-sky-900"
+
+        />
+      </div>
+
+  
+
+      <div className="relative w-full sm:w-52 lg:w-64">
             <input
               type="text"
               placeholder="ابحث عن موظف او عميل ..."
@@ -143,39 +178,14 @@ const page = () => {
               onClick={handleSearch}
             />
           </div>
+          <h1 className="text-2xl font-bold mb-4">جدول الزيارات</h1>
+
         </div>
 
         <table className="min-w-full divide-y divide-gray-200">
           <thead className="bg-sky-900">
             {table.getHeaderGroups().map((headerGroup) => (
-              // <tr key={headerGroup.id}>
-              //   {headerGroup.headers.map((header) => (
-              //     <th
-              //       key={header.id}
-              //       className="px-4 py-3 text-right text-xl font-semibold text-white"
-              //     >
-              //       <div>
-              //         {flexRender(
-              //           header.column.columnDef.header,
-              //           header.getContext()
-              //         )}
-              //       </div>
-              //       {header.column.getCanFilter() && (
-              //         <DebouncedInput
-              //           type="text"
-              //           value={(header.column.getFilterValue() ?? "")}
-              //           onChange={(value) =>
-              //             header.column.setFilterValue(value)
-              //           }
-              //           placeholder={`بحث...`}
-              //           className="flex flex-row-reverse w-full mt-1 px-2 py-1 text-sm border rounded shadow-sm"
-              //         />
-              //       )}
-              //     </th>
-              //   ))}
-              // </tr>
-
-
+          
               <tr key={headerGroup.id}>
   {headerGroup.headers.map((header) => (
     <th
@@ -189,7 +199,7 @@ const page = () => {
             value={(header.column.getFilterValue() ?? "")}
             onChange={(value) => header.column.setFilterValue(value)}
             placeholder={`بحث...`}
-            className="ml-2 px-2 py-1 text-sm border rounded shadow-sm w-32"
+            className="ml-2 px-2 py-1 text-sm rounded shadow-sm w-32"
           />
         )}
 
@@ -245,6 +255,10 @@ const page = () => {
           <p className="text-sm text-gray-600">
             عدد الزيارات الكلي: <span className="font-bold">{totalCount}</span>
           </p>
+          <p className="text-sm text-gray-600">
+          اجمالي المبلغ المقبوض: <span className="font-bold">{amountReceived}</span>
+          </p>
+       
           <div className="flex gap-2 items-center">
             <button
               onClick={handlePrev}
@@ -293,7 +307,7 @@ function DebouncedInput({ value, onChange, debounce = 300, ...props }) {
       {...props}
       value={inputValue}
       onChange={(e) => setInputValue(e.target.value)}
-      className="w-full mt-1 px-2 py-1 text-sm border rounded shadow-sm"
+      className=" mt-1 px-2 py-1 text-sm border-b rounded shadow-sm"
       />
   );
 }
