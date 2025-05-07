@@ -140,24 +140,24 @@ const page = () => {
         <div className="p-6 flex flex-row place-items-center justify-between">
          
 
-        <div className="flex flex-row-reverse ">
+        <div className="flex flex-row-reverse text-xl font-bold ">
       <label>الى: </label>
         <input
           type="date"
           id="lastdate"
           value={lastDate}
           onChange={handleLastDateChange}
-          className="border-b  border-sky-900"
+          className="border-b  border-sky-900 text-xl"
         />
       </div>
-          <div className="flex flex-row-reverse ">
+          <div className="flex flex-row-reverse  text-xl font-bold">
         <label>من: </label>
         <input
           type="date"
           id="firstdate"
           value={firstDate}
           onChange={handleFirstDateChange}
-          className="border-b  border-sky-900"
+          className="border-b  border-sky-900 text-xl"
 
         />
       </div>
@@ -255,8 +255,8 @@ const page = () => {
           <p className="text-sm text-gray-600">
             عدد الزيارات الكلي: <span className="font-bold">{totalCount}</span>
           </p>
-          <p className="text-sm text-gray-600">
-          اجمالي المبلغ المقبوض: <span className="font-bold">{amountReceived}</span>
+          <p className=" text-gray-600">
+          اجمالي المبلغ المقبوض: <span className="text-green-700 text-xl font-bold">{amountReceived}</span>
           </p>
        
           <div className="flex gap-2 items-center">
@@ -276,7 +276,7 @@ const page = () => {
             >
               <MdChevronRight size={24} />
             </button>
-            <span className="font-medium">
+            <span className="font-medium ">
               الصفحة {currentPage} من {totalPage}
             </span>
           </div>

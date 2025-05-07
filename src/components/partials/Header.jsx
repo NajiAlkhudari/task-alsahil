@@ -2,7 +2,6 @@
 
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
-import { AiOutlineAlignCenter } from "react-icons/ai";
 import {  FaRegUser } from "react-icons/fa";
 import { FaUserSecret } from "react-icons/fa6";
 import { MdOutlineTask } from "react-icons/md";
@@ -14,6 +13,8 @@ import { FaUserCircle } from "react-icons/fa";
 import { useMeStore } from "@/store/meStore";
 import NavMenu from "./sidebar/NavMenu";
 import SubMenu from "./sidebar/Submenu";
+import { TbTableColumn } from "react-icons/tb";
+
 const Header = ({ isSidebarOpen, onSidebarToggle }) => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const router = useRouter();
@@ -47,9 +48,9 @@ const{getMe , name}= useMeStore();
       <div className="container mx-auto flex justify-between items-center px-2  ">
         <button
           onClick={() => onSidebarToggle(true)}
-          className="p-2 text-2xl  rounded-full text-sky-950 hover:bg-gray-600"
+          className="p-2 text-2xl  rounded-full text-sky-950 "
         >
-          <AiOutlineAlignCenter />
+          <TbTableColumn />
         </button>
 
         <div className="flex space-x-14 left-1/2 transform -translate-x-1/2 text-3xl font-bold text-sky-900">
