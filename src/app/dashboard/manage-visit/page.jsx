@@ -245,7 +245,7 @@ const page = () => {
               onChange={handlePageSizeChange}
               className="px-3 py-1 border rounded"
             >
-              {[10, 20, 50, 100, 500].map((n) => (
+              {[10, 20, 100, 500, 1000 , 10000].map((n) => (
                 <option key={n} value={n}>
                   {n}
                 </option>
