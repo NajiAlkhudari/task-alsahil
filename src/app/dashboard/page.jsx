@@ -3,6 +3,7 @@ import React from "react";
 import Link from "next/link";
 import { FaUserTie, FaUsers, FaClipboardList } from "react-icons/fa";
 import { MdOutlinePlace } from "react-icons/md";
+import { FcStatistics } from "react-icons/fc";
 
 const page = () => {
 
@@ -14,7 +15,12 @@ const page = () => {
       description: "تتبع زيارات الموظفين للعملاء.",
       href: "/dashboard/manage-visit",
     },
- 
+    {
+      icon: <FcStatistics className="text-red-600 text-3xl mb-2" />,
+      title: "الاحصائيات",
+      description: "تتبع احصائيات الموظفين حيث عدد الزيارات و اجمالي المبلغ المقبوض.",
+      href: "/dashboard/statistics",
+    },
     {
       icon: <FaClipboardList className="text-purple-600 text-3xl mb-2" />,
       title: "المهام",

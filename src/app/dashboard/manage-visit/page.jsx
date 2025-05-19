@@ -1,13 +1,13 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import {
-  useReactTable,
-  createColumnHelper,
-  getCoreRowModel,
-  getFilteredRowModel,
-  flexRender,
-} from "@tanstack/react-table";
+    import React, { useState, useEffect } from "react";
+    import {
+      useReactTable,
+      createColumnHelper,
+      getCoreRowModel,
+      getFilteredRowModel,
+      flexRender,
+    } from "@tanstack/react-table";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import Loading from "./loading";
 import Card from "@/components/ui/Card"; 
@@ -213,6 +213,7 @@ const page = () => {
 </tr>
             ))}
           </thead>
+          
           <tbody className="bg-white divide-y divide-gray-100">
             {table.getRowModel().rows.length > 0 ? (
               table.getRowModel().rows.map((row) => (

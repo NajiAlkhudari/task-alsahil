@@ -5,6 +5,8 @@ import { useState, useEffect } from "react";
 import {  FaRegUser } from "react-icons/fa";
 import { FaUserSecret } from "react-icons/fa6";
 import { MdOutlineTask } from "react-icons/md";
+import { FcStatistics } from "react-icons/fc";
+
 import { GoTasklist } from "react-icons/go";
 import Cookies from "js-cookie";
 import Sidebar from "@/components/partials/sidebar/Sidebar";
@@ -115,6 +117,14 @@ const{getMe , name}= useMeStore();
             icon={GoTasklist}
             onClick={() => handleSidebarItemClick("/dashboard/manage-visit")}
           />
+     <SubMenu
+            label="احصائيات"
+            icon={FcStatistics}
+            onClick={() => handleSidebarItemClick("/dashboard/statistics")}
+          />
+
+
+          
   
         </NavMenu>
       </Sidebar>
