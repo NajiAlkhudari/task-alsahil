@@ -7,7 +7,7 @@ export const useStatics = create((set) => ({
   error: null,
   statics: [],
 
-  getStatics: async (firstdate = "", lastdate = "") => {
+  getStatics: async (startDate = "", endDate = "") => {
     set({ loading: true, error: null });
 
     const token = Cookies.get("token");
@@ -18,7 +18,7 @@ export const useStatics = create((set) => ({
 
     try {
       const response = await axios.get(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/Visit/GetVisit?firstdate=${firstdate}&lastdate=${lastdate}`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/Visit/GetVisit?startDate=${startDate}&endDate=${endDate}`,
         {
           headers: {
             "Content-Type": "application/json",
