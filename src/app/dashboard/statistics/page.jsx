@@ -28,7 +28,7 @@ const Page = () => {
     <>
       <div className="flex flex-row items-start gap-4 m-4" dir="rtl">
         <div className="flex flex-col w-full max-w-xs">
-          <label htmlFor="firstdate" className="mb-1 text-sm font-medium text-gray-700 text-right">
+          <label htmlFor="firstdate" className="mb-1 text-xl font-medium text-gray-700 text-right">
             من تاريخ
           </label>
           <input
@@ -41,7 +41,7 @@ const Page = () => {
         </div>
 
         <div className="flex flex-col w-full max-w-xs">
-          <label htmlFor="lastdate" className="mb-1 text-sm font-medium text-gray-700 text-right">
+          <label htmlFor="lastdate" className="mb-1 text-xl font-medium text-gray-700 text-right">
             إلى تاريخ
           </label>
           <input
