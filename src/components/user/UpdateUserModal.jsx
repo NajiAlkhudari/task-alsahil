@@ -81,11 +81,11 @@ const UpdateUserModal = ({ isOpen, onClose, onUpdateUser , initialData  }) => {
                   <label className="min-w-[100px] text-sm font-medium pt-2">Role</label>
                   <div className="flex flex-col gap-2">
                     <label className="flex items-center gap-2">
-                      <Field type="checkbox" name="role" value="1" className="accent-indigo-600" />
+                      <Field type="checkbox" name="role" value="2" className="accent-indigo-600" />
                       Admin
                     </label>
                     <label className="flex items-center gap-2">
-                      <Field type="checkbox" name="role" value="2" className="accent-indigo-600" />
+                      <Field type="checkbox" name="role" value="1" className="accent-indigo-600" />
                       User
                     </label>
                   </div>
