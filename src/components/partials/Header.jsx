@@ -6,6 +6,7 @@ import {  FaRegUser } from "react-icons/fa";
 import { FaUserSecret } from "react-icons/fa6";
 import { MdOutlineTask } from "react-icons/md";
 import { FcStatistics } from "react-icons/fc";
+import { BsCalendarDate } from "react-icons/bs";
 
 import { GoTasklist } from "react-icons/go";
 import Cookies from "js-cookie";
@@ -96,6 +97,22 @@ const{getMe , name}= useMeStore();
       <Sidebar isOpen={isSidebarOpen} onClose={() => onSidebarToggle(false)}>
         <p className="text-center p-4 text-2xl font-bold text-gold">Task Log</p>
         <NavMenu title="القائمة">
+                   <SubMenu
+            label="الزيارات"
+            icon={GoTasklist}
+            onClick={() => handleSidebarItemClick("/dashboard/manage-visit")}
+          />
+     <SubMenu
+            label="احصائيات"
+            icon={FcStatistics}
+            onClick={() => handleSidebarItemClick("/dashboard/statistics")}
+          />
+
+               <SubMenu
+            label="المواعيد"
+            icon={BsCalendarDate}
+            onClick={() => handleSidebarItemClick("/dashboard/manage-date")}
+          />
           <SubMenu
             label="الموظفين"
             icon={FaRegUser}
@@ -112,16 +129,7 @@ const{getMe , name}= useMeStore();
             icon={MdOutlineTask}
             onClick={() => handleSidebarItemClick("/dashboard/managae-task")}
           />
-          <SubMenu
-            label="الزيارات"
-            icon={GoTasklist}
-            onClick={() => handleSidebarItemClick("/dashboard/manage-visit")}
-          />
-     <SubMenu
-            label="احصائيات"
-            icon={FcStatistics}
-            onClick={() => handleSidebarItemClick("/dashboard/statistics")}
-          />
+ 
 
 
           

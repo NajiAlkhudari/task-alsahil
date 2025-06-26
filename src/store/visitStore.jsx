@@ -57,4 +57,36 @@ export const useVisit = create((set) => ({
       set({ error: error.message });
     }
   },
+
+
+    postVisit: async (postData) => {
+    set({ loading: true, error: null });
+
+    try {
+      const token = Cookies.get("token");
+
+      const response = await axios.post(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/Visit`,
+        postData,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      const newVisit = response.data.data;
+
+      set((state) => ({
+        visits: [...state.visits, newVisit],
+        loading: false,
+      }));
+    } catch (error) {
+      set({
+        error: error.response ? error.response.data.message : error.message,
+        loading: false,
+      });
+      throw error;
+    }
+  },
 }));

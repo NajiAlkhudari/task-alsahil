@@ -1,47 +1,3 @@
-// import { create } from "zustand";
-// import axios from "axios";
-// import Cookies from "js-cookie";
-
-// export const useStatics = create((set) => ({
-//   loading: false,
-//   error: null,
-//   statics: [],
-
-//   getStatics: async (startDate = "", endDate = "") => {
-//     set({ loading: true, error: null });
-
-//     const token = Cookies.get("token");
-//     if (!token) {
-//       set({ error: "Token not found", loading: false });
-//       return;
-//     }
-
-//     try {
-//       const response = await axios.get(
-//         `${process.env.NEXT_PUBLIC_API_URL}/api/Visit/GetVisit?startDate=${startDate}&endDate=${endDate}`,
-//         {
-//           headers: {
-//             "Content-Type": "application/json",
-//             Authorization: `Bearer ${token}`,
-//           },
-//         }
-//       );
-
-//       const data = response.data?.data;
-
-//       console.log("✅ API Response Data:", data); 
-
-//       set({
-//         loading: false,
-//         statics: data || [],
-//       });
-
-//     } catch (error) {
-//       console.error("❌ API Error:", error); 
-//       set({ loading: false, error: error.message });
-//     }
-//   },
-// }));
 
 
 import { create } from "zustand";
@@ -76,14 +32,14 @@ export const useStatics = create((set) => ({
 
       const data = response.data?.data;
 
-      console.log("✅ API Response Data:", data);
+      console.log(" API Response Data:", data);
 
       set({
         loading: false,
         statics: data || [],
       });
     } catch (error) {
-      console.error("❌ API Error:", error);
+      console.error(" API Error:", error);
       set({ loading: false, error: error.message });
     }
   },
@@ -117,7 +73,7 @@ export const useStatics = create((set) => ({
         employeeStats: data || null,
       });
     } catch (error) {
-      console.error("❌ Employee Stats API Error:", error);
+      console.error(" Employee Stats API Error:", error);
       set({ loading: false, error: error.message });
     }
   },

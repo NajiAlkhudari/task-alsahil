@@ -1,0 +1,9 @@
+{
+  "taskLog": "Task Log",
+  "signIn": "Sign In",
+  "signInDescription": "Sign in to your account to start using Dashboard",
+  "userName": "UserName",
+  "password": "Password",
+  "loading": "loading ...",
+  "submit": "Sign In"
+}
