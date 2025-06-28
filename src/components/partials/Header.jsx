@@ -97,6 +97,18 @@ const{getMe , name}= useMeStore();
       <Sidebar isOpen={isSidebarOpen} onClose={() => onSidebarToggle(false)}>
         <p className="text-center p-4 text-2xl font-bold text-gold">Task Log</p>
         <NavMenu title="القائمة">
+
+                     <SubMenu
+    label="المواعيد"
+    icon={BsCalendarDate}
+    subItems={[
+      { label: " المواعيد المكتملة", path: "/dashboard/date-complete" },
+      { label: "المواعيد قيد التنفيذ ", path: "/dashboard/date-progress" },
+            { label: "اضافة موعد", path: "/dashboard/add-date" },
+
+    ]}
+    onClick={(path) => handleSidebarItemClick(path)}
+  />
                    <SubMenu
             label="الزيارات"
             icon={GoTasklist}
@@ -108,11 +120,13 @@ const{getMe , name}= useMeStore();
             onClick={() => handleSidebarItemClick("/dashboard/statistics")}
           />
 
-               <SubMenu
+               {/* <SubMenu
             label="المواعيد"
             icon={BsCalendarDate}
             onClick={() => handleSidebarItemClick("/dashboard/manage-date")}
-          />
+          /> */}
+
+
           <SubMenu
             label="الموظفين"
             icon={FaRegUser}

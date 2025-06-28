@@ -36,7 +36,7 @@ const SubMenu = ({ label, icon: Icon, subItems, onClick }) => {
             <div
               key={index}
               onClick={() => onClick(subItem.path)}
-              className="cursor-pointer px-4 py-2 hover:bg-gray-300 rounded"
+              className="cursor-pointer px-4 py-2 hover:bg-gray-300 hover:text-black rounded"
             >
               {subItem.label}
             </div>

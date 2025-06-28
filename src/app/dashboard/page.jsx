@@ -43,8 +43,8 @@ const page = () => {
     {
       icon : <BsCalendarDate className="text-sky-900 text-3xl mb-2" /> ,
       title : "المواعيد",
-      description :"قم باضافة المواعيد الخاصة بالموظفين",
-      href : "/dashboard/manage-date",
+      description :"المواعيد الخاصة بالموظفين قيد التنفيذ",
+      href : "/dashboard/date-progress",
     }
  
 
