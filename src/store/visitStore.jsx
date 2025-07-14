@@ -66,7 +66,7 @@ export const useVisit = create((set) => ({
       const token = Cookies.get("token");
 
       const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/Visit`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/Visit/withNotify`,
         postData,
         {
           headers: {
